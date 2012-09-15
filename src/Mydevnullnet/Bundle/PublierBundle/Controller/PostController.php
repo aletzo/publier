@@ -17,6 +17,8 @@ class PostController extends BaseController
                    ->find( 1 );
 
         if ( ! $user ) {
+            $this->get( 'session' )->getFlashBag()->add( 'info', 'The site is not set up yet. What are you waiting for?' );
+
             return $this->redirect( $this->generateUrl( 'mydevnullnet_publier_setup' ) );
         }
 

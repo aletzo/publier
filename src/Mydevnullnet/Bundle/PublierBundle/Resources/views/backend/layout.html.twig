@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %} - publier</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/mydevnullnetpublier/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/mydevnullnetpublier/css/backend.css') }}" />
+</head>
+<body>
+        {% include 'MydevnullnetPublierBundle::backend/navigation.html.twig' %}
+    <div class="container">
+	    <div class="row">
+            <div class="span12">
+                {% for flashMessage in app.session.flashbag.get( 'warning' ) %}
+                    <div class="alert alert-block">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+                {% for flashMessage in app.session.flashbag.get( 'success' ) %}
+                    <div class="alert alert-success">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+                {% for flashMessage in app.session.flashbag.get( 'info' ) %}
+                    <div class="alert alert-info">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+                {% for flashMessage in app.session.flashbag.get( 'error' ) %}
+                    <div class="alert alert-error">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+            </div>
+	    </div>
+	    <div class="row">
+            <div class="span12">
+                {% block content %}{% endblock %}
+            </div>
+	    </div>
+	</div>
+</body>
+</html>
+
+

@@ -15,14 +15,8 @@ class SetupController extends BaseController
         if ( $this->getRequest()->getMethod() == 'POST' ) {
             $name          = $this->getRequiredPostParam( 'name' );
             $domain        = $this->getRequiredPostParam( 'domain' );
-            $username      = $this->getRequiredPostParam( 'username' );
             $email         = $this->getRequiredPostParam( 'email' );
             $password      = $this->getRequiredPostParam( 'password' );
-            $passwordAgain = $this->getRequiredPostParam( 'password_again' );
-
-            if ( $password != $passwordAgain ) {
-                throw new \Exception( 'Passwords do not match' );
-            }
 
             $site = new Site();
 
@@ -38,8 +32,7 @@ class SetupController extends BaseController
 
             $user = new User();
 
-            $user->setUsername( $username )
-                 ->setEmail( $email )
+            $user->setEmail( $email )
                  ->setPassword( $hashedPassword )
                  ->setSalt( $salt );
             
@@ -47,15 +40,12 @@ class SetupController extends BaseController
 
             $em->flush();
 
+            $this->get( 'session' )->getFlashBag()->add( 'success', 'The site is now set up! Log in dude!' );
+
             return $this->redirect( $this->generateUrl( 'mydevnullnet_publier_login' ) );
         }
 
         return $this->render( 'MydevnullnetPublierBundle:Setup:index.html.twig' );
-    }
-
-    public function doneAction()
-    {
-        return $this->render( 'MydevnullnetPublierBundle:Setup:done.html.twig' );
     }
 
 }
