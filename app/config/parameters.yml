@@ -1,8 +1,8 @@
 parameters:
-    database_driver:   pdo_mysql
+    database_driver:   pdo_sqlite
     database_host:     localhost
     database_port:     ~
-    database_name:     symfony
+    database_name:     publier
     database_user:     root
     database_password: ~
 
@@ -13,3 +13,6 @@ parameters:
 
     locale:            en
     secret:            superyeahawesomesecrettoken
+
+    sqlite_driver: pdo_sqlite
+    sqlite_path: %kernel.root_dir%/sqlite_publier.db

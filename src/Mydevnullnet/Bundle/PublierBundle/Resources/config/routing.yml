@@ -1,3 +1,37 @@
-mydevnullnet_publier_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MydevnullnetPublierBundle:Default:index }
+mydevnullnet_publier_post_list:
+    pattern:  /
+    defaults: { _controller: MydevnullnetPublierBundle:Post:list }
+
+mydevnullnet_publier_login:
+    pattern:  /login
+    defaults: { _controller: MydevnullnetPublierBundle:User:login }
+
+mydevnullnet_publier_logout:
+    pattern:  /logout
+    defaults: { _controller: MydevnullnetPublierBundle:User:logout }
+
+mydevnullnet_publier_profile:
+    pattern:  /profile
+    defaults: { _controller: MydevnullnetPublierBundle:User:profile }
+
+mydevnullnet_publier_post_new:
+    pattern:  /new
+    defaults: { _controller: MydevnullnetPublierBundle:Post:new }
+
+mydevnullnet_publier_post_edit:
+    pattern:  /edit/{slug}
+    defaults: { _controller: MydevnullnetPublierBundle:Post:edit }
+
+mydevnullnet_publier_post_publish:
+    pattern:  /publish/{slug}
+    defaults: { _controller: MydevnullnetPublierBundle:Post:publish }
+
+mydevnullnet_publier_post_archive:
+    pattern:  /archive/{slug}
+    defaults: { _controller: MydevnullnetPublierBundle:Post:archive }
+
+mydevnullnet_publier_post_load:
+    pattern:  /{slug}
+    defaults: { _controller: MydevnullnetPublierBundle:Post:load }
+
+

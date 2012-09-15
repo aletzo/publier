@@ -2,12 +2,12 @@
 
 namespace Mydevnullnet\Bundle\PublierBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
-    public function indexAction($name)
+
+    public function indexAction()
     {
-        return $this->render('MydevnullnetPublierBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('MydevnullnetPublierBundle:Default:index.html.twig', array('name' => 'buddy') );
     }
+
 }
