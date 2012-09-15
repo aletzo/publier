@@ -2,12 +2,24 @@ mydevnullnet_publier_post_list:
     pattern:  /
     defaults: { _controller: MydevnullnetPublierBundle:Post:list }
 
+mydevnullnet_publier_404:
+    pattern:  /404
+    defaults: { _controller: MydevnullnetPublierBundle:Error:index }
+
+mydevnullnet_publier_setup:
+    pattern:  /setup
+    defaults: { _controller: MydevnullnetPublierBundle:Setup:index }
+
+mydevnullnet_publier_done:
+    pattern:  /done
+    defaults: { _controller: MydevnullnetPublierBundle:Setup:done }
+
 mydevnullnet_publier_login:
-    pattern:  /login
+    pattern:  /log-in
     defaults: { _controller: MydevnullnetPublierBundle:User:login }
 
 mydevnullnet_publier_logout:
-    pattern:  /logout
+    pattern:  /log-out
     defaults: { _controller: MydevnullnetPublierBundle:User:logout }
 
 mydevnullnet_publier_profile:

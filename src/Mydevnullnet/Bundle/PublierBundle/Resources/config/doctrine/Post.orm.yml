@@ -1,0 +1,16 @@
+Mydevnullnet\Bundle\PublierBundle\Entity\Post:
+  type: entity
+  repositoryClass: Mydevnullnet\Bundle\PublierBundle\Repository\PostRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    title:        { type: string   }
+    body:         { type: string   }
+    slug:         { type: string   }
+    created_at:   { type: datetime }
+    publish_date: { type: datetime }
+    is_streamed:  { type: boolean  }
+    is_in_menu:   { type: boolean  }
+

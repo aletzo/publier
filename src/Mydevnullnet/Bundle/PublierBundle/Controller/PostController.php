@@ -2,11 +2,25 @@
 
 namespace Mydevnullnet\Bundle\PublierBundle\Controller;
 
+use Mydevnullnet\Bundle\PublierBundle\Entity\Post,
+    Mydevnullnet\Bundle\PublierBundle\Entity\Site,
+    Mydevnullnet\Bundle\PublierBundle\Entity\User;
+
 class PostController extends BaseController
 {
 
     public function listAction()
     {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $user = $em->getRepository( 'MydevnullnetPublierBundle:User' )
+                   ->find( 1 );
+
+        if ( ! $user ) {
+            return $this->redirect( $this->generateUrl( 'mydevnullnet_publier_setup' ) );
+        }
+
+
         return $this->render( 'MydevnullnetPublierBundle:Post:list.html.twig' );
     }
 

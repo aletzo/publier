@@ -1,0 +1,11 @@
+Mydevnullnet\Bundle\PublierBundle\Entity\Site:
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:        { type: string }
+    description: { type: string }
+    domain:      { type: string }
+
