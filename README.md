@@ -1,10 +1,12 @@
 #publier
 
+publier: French word for publish ( O tempora o mores! )
+
 A ~~simple CMS~~ blog engine written in Symfony2 using Sqlite.
 
 Sorry world, but I had to do it:
 
-> Every programmer should have a blog, created by ones own blog engine.
+> Every programmer should have a blog, created by one's own blog engine.
 >
 > The Internet
 
