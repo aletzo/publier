@@ -8,4 +8,5 @@ Mydevnullnet\Bundle\PublierBundle\Entity\Site:
     name:        { type: string }
     description: { type: string }
     domain:      { type: string }
+    useSlugs:    { type: boolean }
 

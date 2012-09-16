@@ -11,6 +11,6 @@ Mydevnullnet\Bundle\PublierBundle\Entity\Post:
     slug:         { type: string   }
     created_at:   { type: datetime }
     publish_date: { type: datetime }
-    is_streamed:  { type: boolean  }
-    is_in_menu:   { type: boolean  }
+    in_stream:    { type: boolean  }
+    in_menu:      { type: boolean  }
 

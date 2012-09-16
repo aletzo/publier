@@ -220,4 +220,88 @@ class Post
     {
         return $this->is_in_menu;
     }
+    /**
+     * @var boolean $is_in_stream
+     */
+    private $is_in_stream;
+
+
+    /**
+     * Set is_in_stream
+     *
+     * @param boolean $isInStream
+     * @return Post
+     */
+    public function setIsInStream($isInStream)
+    {
+        $this->is_in_stream = $isInStream;
+    
+        return $this;
+    }
+
+    /**
+     * Get is_in_stream
+     *
+     * @return boolean 
+     */
+    public function getIsInStream()
+    {
+        return $this->is_in_stream;
+    }
+    /**
+     * @var boolean $in_stream
+     */
+    private $in_stream;
+
+    /**
+     * @var boolean $in_menu
+     */
+    private $in_menu;
+
+
+    /**
+     * Set in_stream
+     *
+     * @param boolean $inStream
+     * @return Post
+     */
+    public function setInStream($inStream)
+    {
+        $this->in_stream = $inStream;
+    
+        return $this;
+    }
+
+    /**
+     * Get in_stream
+     *
+     * @return boolean 
+     */
+    public function getInStream()
+    {
+        return $this->in_stream;
+    }
+
+    /**
+     * Set in_menu
+     *
+     * @param boolean $inMenu
+     * @return Post
+     */
+    public function setInMenu($inMenu)
+    {
+        $this->in_menu = $inMenu;
+    
+        return $this;
+    }
+
+    /**
+     * Get in_menu
+     *
+     * @return boolean 
+     */
+    public function getInMenu()
+    {
+        return $this->in_menu;
+    }
 }

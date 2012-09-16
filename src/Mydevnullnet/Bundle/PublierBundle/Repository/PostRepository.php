@@ -12,4 +12,53 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+
+    public function generateSlug( $title, $id = null, $count = 1 )
+    {
+        $slug = $this->sanitizeStringForUrl( $title );
+
+        if ( $count > 1 ) {
+            $slug .= '-' . $count;
+        }
+
+        $qb = $this->getEntityManager()->createQueryBuilder();
+
+        $qb->select( 'p.id' )
+           ->from( 'MydevnullnetPublierBundle:Post', 'p')
+           ->where( 'p.slug = ?1' )
+           ->setParameter( 1, $slug );
+
+        if ( $id ) {
+            $qb->andWhere( 'p.id <> ?2' )
+               ->setParameter( 2, $id );
+        }
+
+        $results = $qb->getQuery()->getResult( \PDO::FETCH_ASSOC );
+
+        if ( $results ) {
+            return $this->generateSlug( $title, $id, ++$count );
+        }
+
+        return $slug;
+    }
+
+    protected function sanitizeStringForUrl( $string )
+    {
+        $replace = array(
+            'ä' => 'ae',
+            'ü' => 'ue',
+            'ö' => 'oe',
+            'ß' => 'ss'
+        );
+
+        $string = strtolower( $string );
+        $string = html_entity_decode( $string );
+        $string = str_replace( array_keys( $replace ), $replace, $string );
+        $string = preg_replace( '#[^\w\säüöß]#', null, $string );
+        $string = preg_replace( '#[\s]{2,}#', ' ', $string );
+        $string = str_replace( ' ', '-', $string );
+
+        return $string;
+    }
+
 }

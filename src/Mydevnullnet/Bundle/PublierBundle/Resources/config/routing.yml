@@ -1,18 +1,18 @@
-mydevnullnet_publier_post_list:
+mydevnullnet_publier_home:
     pattern:  /
-    defaults: { _controller: MydevnullnetPublierBundle:Post:list }
+    defaults: { _controller: MydevnullnetPublierBundle:Site:index }
 
 mydevnullnet_publier_404:
     pattern:  /404
     defaults: { _controller: MydevnullnetPublierBundle:Error:index }
 
-mydevnullnet_publier_setup:
-    pattern:  /setup
-    defaults: { _controller: MydevnullnetPublierBundle:Setup:index }
-
-mydevnullnet_publier_done:
-    pattern:  /done
-    defaults: { _controller: MydevnullnetPublierBundle:Setup:done }
+mydevnullnet_publier_install:
+    pattern:  /install
+    defaults: { _controller: MydevnullnetPublierBundle:Site:install }
+    
+mydevnullnet_publier_posts:
+    pattern:  /posts
+    defaults: { _controller: MydevnullnetPublierBundle:Site:posts }
 
 mydevnullnet_publier_login:
     pattern:  /log-in
@@ -22,28 +22,33 @@ mydevnullnet_publier_logout:
     pattern:  /log-out
     defaults: { _controller: MydevnullnetPublierBundle:User:logout }
 
-mydevnullnet_publier_profile:
-    pattern:  /profile
-    defaults: { _controller: MydevnullnetPublierBundle:User:profile }
+mydevnullnet_publier_settings:
+    pattern:  /settings
+    defaults: { _controller: MydevnullnetPublierBundle:User:settings }
 
 mydevnullnet_publier_post_new:
     pattern:  /new
     defaults: { _controller: MydevnullnetPublierBundle:Post:new }
 
 mydevnullnet_publier_post_edit:
-    pattern:  /edit/{slug}
+    pattern:  /edit/{id}
     defaults: { _controller: MydevnullnetPublierBundle:Post:edit }
 
 mydevnullnet_publier_post_publish:
-    pattern:  /publish/{slug}
+    pattern:  /publish/{id}
     defaults: { _controller: MydevnullnetPublierBundle:Post:publish }
 
 mydevnullnet_publier_post_archive:
-    pattern:  /archive/{slug}
+    pattern:  /archive/{id}
     defaults: { _controller: MydevnullnetPublierBundle:Post:archive }
 
-mydevnullnet_publier_post_load:
+mydevnullnet_publier_post_load_without_slug:
+    pattern:  /post/{id}
+    defaults: { _controller: MydevnullnetPublierBundle:Post:load }
+
+mydevnullnet_publier_post_load_with_slug:
     pattern:  /{slug}
     defaults: { _controller: MydevnullnetPublierBundle:Post:load }
+
 
 

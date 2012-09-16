@@ -1,0 +1,46 @@
+{% extends 'MydevnullnetPublierBundle::backend/layout.html.twig' %}
+{% block title %}
+Posts
+{% endblock %}
+{% block content %}
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+        <th>Title</th>
+        <th>Slug</th>
+        <th>Publish Date</th>
+        <th>Created at</th>
+        <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td><a href="{{ path( 'mydevnullnet_publier_post_edit', { 'id': post.id } ) }}" title="Edit">{{ post.title }}</a></td>
+            <td class="slug">{{ post.slug }}</td>
+            <td class="date">{{ post.publishDate|date( 'd-M-Y H:i' ) }}</td>
+            <td class="date">{{ post.createdAt|date( 'd-M-Y H:i' ) }}</td>
+            <td class="status">
+                {% if post.inStream %}
+                    <span class="label label-inverse">stream</span>
+                {% else %}
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                {% endif %}
+                {% if post.inMenu %}
+                    <span class="label">menu</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a class="btn btn-inverse" href="{{ path('mydevnullnet_publier_post_new') }} ">New Post</a>
+{% endblock %}
+
+

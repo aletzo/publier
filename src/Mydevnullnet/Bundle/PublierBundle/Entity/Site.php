@@ -108,4 +108,32 @@ class Site
     {
         return $this->domain;
     }
+    /**
+     * @var boolean $useSlugs
+     */
+    private $useSlugs;
+
+
+    /**
+     * Set useSlugs
+     *
+     * @param boolean $useSlugs
+     * @return Site
+     */
+    public function setUseSlugs($useSlugs)
+    {
+        $this->useSlugs = $useSlugs;
+    
+        return $this;
+    }
+
+    /**
+     * Get useSlugs
+     *
+     * @return boolean 
+     */
+    public function getUseSlugs()
+    {
+        return $this->useSlugs;
+    }
 }

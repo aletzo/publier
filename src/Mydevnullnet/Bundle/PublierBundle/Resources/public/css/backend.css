@@ -1,10 +1,10 @@
-.navbar .brand {
-    float: right;
+table .slug {
+    width: 120px;
 }
 table .date {
     width: 130px;
 }
 
-table .actions {
-    width: 240px;
+table .status {
+    width: 105px;
 }
